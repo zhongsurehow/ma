@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>认知止水阀动画</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="animation-container">
+        <!-- 场景 0: 开场标题 -->
+        <div id="scene0-intro" class="scene">
+            <div class="intro-title">
+                <span>认</span><span>知</span><span>止</span><span>水</span><span>阀</span>
+            </div>
+            <div class="intro-subtitle">
+                信息洪流中的清醒之道
+            </div>
+        </div>
+
+
+        <!-- 场景 1: "你不是信息焦虑" -->
+        <div id="scene1-anxiety" class="scene">
+            <div class="text-anxiety">
+                <span>信</span><span>息</span><span>焦</span><span>虑</span>
+            </div>
+            <div class="text-not-anxiety">你不是</div>
+        </div>
+
+        <!-- 场景 2: "是你一直在拿漏斗接瀑布" (Three.js canvas) -->
+        <div id="scene2-waterfall" class="scene">
+            <!-- Canvas for Three.js will be appended here by script.js -->
+        </div>
+        <div class="scene2-waterfall-text-container fixed-text-overlay">
+             <div class="text-line1">是你一直在拿</div>
+             <div class="text-line2">
+                <span class="text-funnel">漏斗</span>
+                <span>接</span>
+                <span class="text-waterfall">瀑布</span>
+            </div>
+        </div>
+
+        <!-- 场景 3: "现在的信息世界，像水一样，流得快、流得急" -->
+        <div id="scene3-water-world" class="scene">
+            <svg id="water-streams-svg" width="100%" height="100%"></svg>
+            <div class="scene3-water-world-text-container fixed-text-overlay">
+                <div class="text-water-like">现在的信息世界，像水一样</div>
+                <div class="text-water-fast">
+                    <span>流</span><span>得</span><span>快</span>、<span>流</span><span>得</span><span>急</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 场景 4: "你以为你能接住所有水，结果只是被淹没、灌满、呛住" -->
+        <div id="scene4-drowning" class="scene">
+            <div id="drowning-effect-container">
+                <!-- Particles or distortion effect here -->
+            </div>
+            <div class="scene4-drowning-text-container fixed-text-overlay">
+                <div>你以为你能接住所有水</div>
+                <div>结果只是被
+                    <span class="text-drown-word text-drown-submerged">淹没</span>、
+                    <span class="text-drown-word text-drown-filled">灌满</span>、
+                    <span class="text-drown-word text-drown-choked">呛住</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 场景 5: "所以，聪明人不去“接”" -->
+        <div id="scene5-dont-catch" class="scene">
+             <div class="scene5-text-container fixed-text-overlay">
+                <div>所以，聪明人不去</div>
+                <div class="text-catch-container">
+                    <span class="text-catch-word">接</span>
+                    <svg class="cross-out-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <line x1="10" y1="10" x2="90" y2="90" stroke="red" stroke-width="8"/>
+                        <line x1="10" y1="90" x2="90" y2="10" stroke="red" stroke-width="8"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- 场景 6: "而是建一个有“阀门”的系统" -->
+        <div id="scene6-build-system" class="scene">
+            <svg id="system-blueprint-svg" width="100%" height="100%"></svg>
+            <div class="scene6-text-container fixed-text-overlay">
+                <div>而是建一个有</div>
+                <div><span class="text-valve-word">阀门</span>的<span class="text-system-word">系统</span></div>
+            </div>
+        </div>
+
+        <!-- 场景 7: "🌱《Liya的智慧锦囊》今天送你三个“认知止水阀”" -->
+        <div id="scene7-liya-intro" class="scene">
+            <div class="scene7-text-container fixed-text-overlay">
+                <div class="liya-line1">
+                    <span class="emoji-plant">🌱</span>
+                    <span>《Liya的智慧锦囊》</span>
+                </div>
+                <div class="liya-line2">今天送你三个</div>
+                <div class="liya-line3">
+                    “<span class="text-cognitive">认知</span><span class="text-stopwater">止水</span><span class="text-valve-icon-placeholder">阀</span>”
+                </div>
+                <div class="valve-icons-container">
+                    <div class="valve-icon" id="valve-icon-1">1</div>
+                    <div class="valve-icon" id="valve-icon-2">2</div>
+                    <div class="valve-icon" id="valve-icon-3">3</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 场景 8: 第一个阀门：开局过滤法 -->
+        <div id="scene8-valve1-filter" class="scene valve-scene">
+            <div class="valve-title-container fixed-text-overlay">
+                <div class="valve-number">第一个阀门</div>
+                <div class="valve-name">开局过滤法</div>
+            </div>
+            <svg id="filter-animation-svg" width="100%" height="100%"></svg>
+            <div class="valve-description fixed-text-overlay">
+                <div>别一睁眼就刷手机</div>
+                <div>你的<span class="text-first-sip">第一口信息</span>，决定一天的<span class="text-cognitive-tone">认知基调</span></div>
+                <div>建议：醒来后的前10分钟</div>
+                <div>只接收你<span class="text-active-choice">主动选择</span>的内容</div>
+                <div>比如<span class="text-book">一本书</span>、<span class="text-idea">一条理念</span>、<span class="text-goal">一个目标</span></div>
+            </div>
+        </div>
+
+        <!-- 场景 9: 第二个阀门：主题感知锚 -->
+        <div id="scene9-valve2-anchor" class="scene valve-scene">
+            <div class="valve-title-container fixed-text-overlay">
+                <div class="valve-number">🧭 第二个阀门</div>
+                <div class="valve-name">主题感知锚</div>
+            </div>
+            <div id="anchor-animation-container">
+                <!-- Keyword input and information flow visualization here -->
+                 <div class="keyword-display">今日关键词: <span id="current-keyword">专注</span></div>
+            </div>
+            <div class="valve-description fixed-text-overlay">
+                <div>每天设置一个“<span class="text-today-keyword">今日关键词</span>”。</div>
+                <div>遇到信息，问自己一句：</div>
+                <div>这和我今天的关键词有关吗？</div>
+                <div>不相关？ 就<span class="text-slide-away">滑走</span>，不<span class="text-internal-friction">内耗</span></div>
+                <div>比如今天的关键词是“专注”，</div>
+                <div>那你就别看跟<span class="text-gossip">八卦</span>有关的一切</div>
+            </div>
+        </div>
+
+        <!-- 场景 10: 第三个阀门：睡前清理池 -->
+        <div id="scene10-valve3-cleanup" class="scene valve-scene">
+             <div class="valve-title-container fixed-text-overlay">
+                <div class="valve-number">🧼 第三个阀门</div>
+                <div class="valve-name">睡前清理池</div>
+            </div>
+            <div id="cleanup-animation-container">
+                <!-- Brain with residue, sorting animation -->
+            </div>
+            <div class="valve-description fixed-text-overlay">
+                <div>不是看完信息才安心</div>
+                <div>而是清完“<span class="text-info-residue">信息残留</span>”才真的<span class="text-truly-quiet">安静</span></div>
+                <div>临睡前5分钟</div>
+                <div>在脑中对今天的信息流“<span class="text-sort-order">排个序</span>”：</div>
+                <div>什么<span class="text-worth-keeping">值得记</span>，什么<span class="text-should-delete">该删</span></div>
+            </div>
+        </div>
+
+        <!-- 场景 11: "每天用一点点“认知整理术”..." -->
+        <div id="scene11-cognitive-tidying" class="scene">
+            <div id="basin-animation-container">
+                <!-- Basin with murky water turning clear -->
+            </div>
+            <div class="scene11-text-container fixed-text-overlay">
+                <div>每天用一点点“<span class="text-tidying-art">认知整理术</span>”，</div>
+                <div>你的大脑就不会像<span class="text-stagnant-basin">积水的盆</span></div>
+                <div>——<span class="text-moldy">发霉</span>、<span class="text-bacteria">长菌</span></div>
+            </div>
+        </div>
+
+        <!-- 场景 12: "💡Liya提醒：信息是水..." -->
+        <div id="scene12-liya-reminder" class="scene">
+            <div id="ordered-flow-container">
+                <!-- Visualization of ordered water flow with valves -->
+            </div>
+            <div class="scene12-text-container fixed-text-overlay">
+                <div class="liya-reminder-title"><span class="emoji-lightbulb">💡</span>Liya提醒：</div>
+                <div>信息是<span class="text-water-again">水</span></div>
+                <div>你要做的，不是<span class="text-catch-more">接更多</span></div>
+                <div>而是<span class="text-channel-orderly">疏导有序</span></div>
+            </div>
+        </div>
+
+        <!-- 场景 13: 结束/Logo/Call to Action (Optional) -->
+        <div id="scene13-outro" class="scene">
+            <div class="outro-text">《Liya的智慧锦囊》</div>
+            <!-- Potentially a logo or a final message -->
+        </div>
+
+    </div>
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
